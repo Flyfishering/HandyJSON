@@ -81,19 +81,24 @@ class ViewController: UIViewController {
         student.name = "Jack"
         student.gender = .Female
         student.subjects = [Subject(name: "Math", id: 1, credit: 23, lessonPeriod: 64), Subject(name: "English", id: 2, credit: 12, lessonPeriod: 32)]
-
+        // 用的最多的应该是 toJSONString
+        print("-----------toJSON---------------")
         print(student.toJSON()!)
+        print("-------toJtoJSONStringSON----------")
         print(student.toJSONString()!)
+        print("----toJSONString(prettyPrint)------")
         print(student.toJSONString(prettyPrint: true)!)
-
+        print("-----------数组toJSON---------------")
         print([student].toJSON())
+        print("-------数组toJtoJSONStringSON-------")
         print([student].toJSONString()!)
+        print("-----数组toJSONString(prettyPrint)--")
         print([student].toJSONString(prettyPrint: true)!)
     }
 
     func deserialization() {
         let jsonString = "{\"id\":\"77544\",\"json_name\":\"Tom Li\",\"age\":18,\"grade\":2,\"height\":180,\"gender\":\"Female\",\"className\":\"A\",\"teacher\":{\"name\":\"Lucy He\",\"age\":28,\"height\":172,\"gender\":\"Female\",},\"subjects\":[{\"name\":\"math\",\"id\":18000324583,\"credit\":4,\"lessonPeriod\":48},{\"name\":\"computer\",\"id\":18000324584,\"credit\":8,\"lessonPeriod\":64}],\"seat\":\"4-3-23\"}"
-
+        
         if let student = Student.deserialize(from: jsonString) {
             print(student.toJSON()!)
         }
